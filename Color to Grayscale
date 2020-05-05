@@ -1,0 +1,15 @@
+// write your code here
+var img = new SimpleImage("hilton.jpg");
+function makegrey()
+{
+    for(var pixel of img.values())
+    {
+        var avg =(pixel.getRed()+pixel.grtGreen()+pixel.getBlue())/3;
+        pixel.setRed(avg);
+        pixel.setGreen(avg);
+        pixel.setBlue(avg);
+    }
+var imgcanvas = document.getElementById("can");
+imgcanvas.drawTo(imgcanvas);
+}
+print(img);
