@@ -1,0 +1,29 @@
+
+function setBlack(pixel) {
+    pixel.setRed(0);
+    pixel.setGreen(0);
+    pixel.setBlue(0);
+    return pixel;
+}
+
+function pixelOnEdgeDifferentThicknesses(pixel, image, hori, verti) {
+    var imagewidth = image.getWidth();
+    var imageheight = image.getHeight();
+    var x = pixel.getX();
+    var y = pixel.getY();
+    if (x <= hori | x >= imagewidth-hori | 
+        y <= verti | y >= imageheight-verti) {
+            return true;
+        }
+    else return false;   
+}
+
+var image = new SimpleImage("smallpanda.png");
+for (var pixel of image.values()) {
+    var s = pixelOnEdgeDifferentThicknesses(pixel, image, 10, 13);
+    if (s == true) {
+        pixel = setBlack(pixel);
+    }
+}
+
+print(image);
